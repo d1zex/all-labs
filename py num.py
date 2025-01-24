@@ -1,3 +1,4 @@
+
 x = 1    # int
 y = 2.8  # float
 z = 1j   # complex
@@ -68,3 +69,7 @@ print(type(c))
 import random
 
 print(random.randrange(1, 10))
+
+x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
