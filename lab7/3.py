@@ -3,15 +3,15 @@ import sys
 pygame.init()
 
 WIDTH, HEIGHT = 500, 500
-BALL_RADIUS = 25
-BALL_COLOR = (255, 0, 0)  # Red color
-BACKGROUND_COLOR = (255, 255, 255)  # White color
+SQUARE_SIZE = 50  
+SQUARE_COLOR = (255, 255, 138)  
+BACKGROUND_COLOR = (255, 255, 255)  
 MOVE_DISTANCE = 20
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Prikol'niy ball")
+pygame.display.set_caption("Prikol'niy square")
 
-ball_x = WIDTH // 2
-ball_y = HEIGHT // 2
+square_x = WIDTH // 2
+square_y = HEIGHT // 2
 
 running = True
 while running:
@@ -23,21 +23,21 @@ while running:
     keys = pygame.key.get_pressed()
     
     if keys[pygame.K_UP]:
-        if ball_y - BALL_RADIUS - MOVE_DISTANCE >= 0:
-            ball_y -= MOVE_DISTANCE
+        if square_y - MOVE_DISTANCE >= 0:
+            square_y -= MOVE_DISTANCE
     if keys[pygame.K_DOWN]:
-        if ball_y + BALL_RADIUS + MOVE_DISTANCE <= HEIGHT:
-            ball_y += MOVE_DISTANCE
+        if square_y + SQUARE_SIZE + MOVE_DISTANCE <= HEIGHT:
+            square_y += MOVE_DISTANCE
     if keys[pygame.K_LEFT]:
-        if ball_x - BALL_RADIUS - MOVE_DISTANCE >= 0: 
-            ball_x -= MOVE_DISTANCE
+        if square_x - MOVE_DISTANCE >= 0: 
+            square_x -= MOVE_DISTANCE
     if keys[pygame.K_RIGHT]:
-        if ball_x + BALL_RADIUS + MOVE_DISTANCE <= WIDTH: 
-            ball_x += MOVE_DISTANCE
+        if square_x + SQUARE_SIZE + MOVE_DISTANCE <= WIDTH: 
+            square_x += MOVE_DISTANCE
 
     screen.fill(BACKGROUND_COLOR)
 
-    pygame.draw.circle(screen, BALL_COLOR, (ball_x, ball_y), BALL_RADIUS)
+    pygame.draw.rect(screen, SQUARE_COLOR, (square_x, square_y, SQUARE_SIZE, SQUARE_SIZE))
 
     pygame.display.flip()
 
